@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './App.css';
 
-
 class App extends Component {
 
   handleOnClickItems() {
@@ -18,24 +17,33 @@ class App extends Component {
   }
 
   render() {
-    // debugger;
+    debugger;
     return (
       <div className="App">
           <button onClick={() => this.handleOnClickItems()}>
             Click to change items count
-            </button>
+          </button>
+            <p>{this.props.items.length}</p>
           <button onClick={() => this.handleOnClickUsers()}>
             Click to change user count
           </button>
-          <p>{this.props.items.length}</p>
+          <p>{this.props.users.length}</p>
+          
       </div>
     );
   }
 }
 
 const mapStateToProps = (state) => {
-  debugger;
-  return { items: state.items }
+  // debugger;
+  return { orangePeel: ['a', 'b', 'c'], 
+           users: state.users }
 }
 
+// const vanilla = (milkshake) => {
+//   debugger;
+//   return {items: milkshake.items}
+// }
+
 export default connect(mapStateToProps)(App);
+// export default connect(vanilla)(App);
